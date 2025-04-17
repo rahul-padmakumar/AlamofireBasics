@@ -9,18 +9,27 @@ import Alamofire
 
 let url = "http://en.wikipedia.org/w/api.php/"
 
+protocol WikiServiceDelegate{
+    func onSuccess(extract: String, image: String)
+    func onFailure(error: Error?)
+}
+
 struct WikiService{
+    
+    var delegate: WikiServiceDelegate?
+    
     func fetchPost(query: String){
         
         let parameter: [String:String] = [
             "format" : "json",
             "action" : "query",
-            "prop" : "extracts",
+            "prop" : "extracts|pageimages",
             "exintro" : "",
             "explaintext" : "",
             "titles" : query,
             "redirects" : "1",
-            "indexpageids" : ""
+            "indexpageids" : "",
+            "pithumbsize": "500"
         ]
         
         AF.request(
@@ -31,16 +40,15 @@ struct WikiService{
             switch response.result{
             case .success(let data):
                 if let safeQuery = data.query{
-                    print("I am here")
                     if let safeId = data.query?.pageids?[0]{
-                        print("I am here 1")
-                        let extract = safeQuery.pages[safeId]?.extract ?? ""
-                        print("Success data: \(extract)")
+                        let extract = safeQuery.pages?[safeId]?.extract ?? ""
+                        let imageUrl = safeQuery.pages?[safeId]?.thumbnail?.source ?? ""
+                        delegate?.onSuccess(extract: extract, image: imageUrl)
                     }
                 }
                 
             case .failure(let error):
-                print("Error: \(error)")
+                delegate?.onFailure(error: error)
             }
         }
     }

@@ -12,10 +12,17 @@ struct WikiModel:Decodable{
 
 struct WikiQuery:Decodable{
     let pageids: [String]?
-    let pages: [String:WikiPage]
+    let pages: [String:WikiPage]?
 }
 
 struct WikiPage:Decodable{
     let title: String?
     let extract: String?
+    let thumbnail: Thumbnail?
+}
+
+struct Thumbnail: Decodable{
+    let height: Int?
+    let source: String?
+    let width: Int?
 }

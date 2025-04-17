@@ -1,24 +1,77 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23504" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23506"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Alamofire_SwiftyJson" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="1xl-3D-IEp">
+                                <rect key="frame" x="16" y="75" width="361" height="56"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="skO-F2-4SQ"/>
+                                </connections>
+                            </searchBar>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9Tg-z2-lyr">
+                                <rect key="frame" x="16" y="131" width="361" height="317"/>
+                            </imageView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DrH-8b-FYC">
+                                <rect key="frame" x="16" y="495" width="361" height="282"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="282" id="98d-Bg-Myh"/>
+                                </constraints>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="9Tg-z2-lyr" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="1Pa-po-Ce9"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="DrH-8b-FYC" secondAttribute="bottom" constant="41" id="G32-q5-e80"/>
+                            <constraint firstItem="1xl-3D-IEp" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="16" id="IV4-k9-3Zh"/>
+                            <constraint firstAttribute="trailing" secondItem="9Tg-z2-lyr" secondAttribute="trailing" constant="16" id="Kde-7F-IgU"/>
+                            <constraint firstItem="DrH-8b-FYC" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="QJI-hi-A0H"/>
+                            <constraint firstItem="9Tg-z2-lyr" firstAttribute="top" secondItem="1xl-3D-IEp" secondAttribute="bottom" id="TGE-b5-beO"/>
+                            <constraint firstItem="1xl-3D-IEp" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="W3g-Ra-vrq"/>
+                            <constraint firstItem="9Tg-z2-lyr" firstAttribute="trailing" secondItem="DrH-8b-FYC" secondAttribute="trailing" id="fP3-JW-gqF"/>
+                            <constraint firstAttribute="trailing" secondItem="1xl-3D-IEp" secondAttribute="trailing" constant="16" id="hTE-cK-kFB"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="DrH-8b-FYC" secondAttribute="trailing" constant="16" id="kyH-D2-DoM"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="9Tg-z2-lyr" secondAttribute="bottom" constant="370" id="lkE-Ds-BUU"/>
+                            <constraint firstItem="9Tg-z2-lyr" firstAttribute="leading" secondItem="DrH-8b-FYC" secondAttribute="leading" id="wCD-be-Q2g"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="imageText" destination="DrH-8b-FYC" id="pV4-wr-MbG"/>
+                        <outlet property="imageView" destination="9Tg-z2-lyr" id="URV-JN-FMD"/>
+                        <outlet property="uiSearchBar" destination="1xl-3D-IEp" id="koI-MV-pOg"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="61.832061068702288" y="3.5211267605633805"/>
         </scene>
     </scenes>
+    <resources>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>

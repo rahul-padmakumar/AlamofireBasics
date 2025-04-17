@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		B754A8812DAE74BB00ACC003 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = B754A8802DAE74BB00ACC003 /* Alamofire */; };
+		B7C665C92DB0D292001C7553 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = B7C665C82DB0D292001C7553 /* SDWebImage */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +70,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B7C665C92DB0D292001C7553 /* SDWebImage in Frameworks */,
 				B754A8812DAE74BB00ACC003 /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -131,6 +133,7 @@
 			name = "Alamofire+SwiftyJson";
 			packageProductDependencies = (
 				B754A8802DAE74BB00ACC003 /* Alamofire */,
+				B7C665C82DB0D292001C7553 /* SDWebImage */,
 			);
 			productName = "Alamofire+SwiftyJson";
 			productReference = B754A8022DAE32D200ACC003 /* Alamofire+SwiftyJson.app */;
@@ -216,6 +219,7 @@
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
 				B754A87F2DAE74BB00ACC003 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				B7C665C72DB0D292001C7553 /* XCRemoteSwiftPackageReference "SDWebImage" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = B754A8032DAE32D200ACC003 /* Products */;
@@ -590,6 +594,14 @@
 				minimumVersion = 5.10.2;
 			};
 		};
+		B7C665C72DB0D292001C7553 /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImage.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.21.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -597,6 +609,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = B754A87F2DAE74BB00ACC003 /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
+		};
+		B7C665C82DB0D292001C7553 /* SDWebImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B7C665C72DB0D292001C7553 /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImage;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
